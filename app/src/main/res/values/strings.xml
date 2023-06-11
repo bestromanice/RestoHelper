@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">RestoHelper</string>
+    <string name="rub_sign">₽</string>
+    <string name="tableString">Стол №</string>
+    <string name="menu_text">Меню</string>
+    <string name="cart_text">Корзина</string>
+    <string name="settings_text">Настройки</string>
+    <string name="dishNameString">Название</string>
+    <string name="dishPriceString">Цена</string>
+    <string name="sendMessageString">Отправить</string>
+    <string name="registerTableBtn">Зарегистрировать стол</string>
+    <string name="loginTableBtn">Выбрать стол</string>
+    <string name="registerDialogMessage">Введите все данные для регистрации</string>
+    <string name="loginDialogMessage">Введите данные для входа</string>
+
+    <string name="pepperoni_name">Пицца Пепперони</string>
+    <string name="pepperoni_description">Колбаса пепперони, томат, оливки, сыр моцарелла, соус помодоро</string>
+
+</resources>

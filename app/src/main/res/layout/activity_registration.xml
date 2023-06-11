@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.RegistrationActivity">
+
+    <TextView
+        android:id="@+id/sign_up_heading_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Регистрация"
+        android:fontFamily="@font/inter"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:textColor="@color/textHeading"
+
+        app:layout_constraintVertical_bias="0.2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <EditText
+        android:id="@+id/sign_up_name_edit_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:layout_marginTop="10dp"
+
+        android:hint="Имя"
+        android:background="@drawable/edit_text_bg"
+
+        app:layout_constraintTop_toBottomOf="@id/sign_up_heading_text_view"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintWidth_percent="0.8"
+        android:elevation="3dp"/>
+
+    <EditText
+        android:id="@+id/sign_up_email_edit_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:layout_marginTop="10dp"
+
+        android:hint="Email"
+        android:background="@drawable/edit_text_bg"
+
+        app:layout_constraintTop_toBottomOf="@id/sign_up_name_edit_text"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintWidth_percent="0.8"
+        android:elevation="3dp"/>
+
+    <EditText
+        android:id="@+id/sign_up_password_edit_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:layout_marginTop="10dp"
+        android:password="true"
+
+        android:hint="Пароль"
+        android:background="@drawable/edit_text_bg"
+
+        app:layout_constraintTop_toBottomOf="@id/sign_up_email_edit_text"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintWidth_percent="0.8"
+        android:elevation="3dp"/>
+
+    <Button
+        android:id="@+id/sign_up_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+
+        android:onClick="signUp"
+        android:text="Зарегистрироваться"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+
+        app:layout_constraintVertical_bias="0.2"
+        app:layout_constraintTop_toBottomOf="@id/sign_up_password_edit_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintWidth_percent="0.8"/>
+
+    <TextView
+        android:id="@+id/sign_up_help_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Уже есть аккаунт?"
+        android:textSize="18sp"
+
+        app:layout_constraintTop_toBottomOf="@id/sign_up_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/sign_up_password_edit_text"
+        app:layout_constraintRight_toRightOf="@id/sign_up_password_edit_text"/>
+
+    <TextView
+        android:id="@+id/sign_up_sign_in_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Войти"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/blue"
+        android:onClick="signIn"
+
+        app:layout_constraintTop_toBottomOf="@id/sign_up_help_text_view"
+        app:layout_constraintLeft_toLeftOf="@id/sign_up_help_text_view"
+        app:layout_constraintRight_toRightOf="@id/sign_up_help_text_view"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

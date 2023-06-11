@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "48600610610",
+    "project_id": "restohelper-2",
+    "storage_bucket": "restohelper-2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:48600610610:android:c7510abd506e66230f892b",
+        "android_client_info": {
+          "package_name": "com.example.restohelper"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "48600610610-kfvvcsrf0khs48gbsgfco58snbpnlok8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnjHkWpaqMPVGQ7N-Ngrt6RxdvlOXmYcc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "48600610610-kfvvcsrf0khs48gbsgfco58snbpnlok8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

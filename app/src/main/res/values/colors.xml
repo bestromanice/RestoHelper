@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="biruza_8ac6d1">#8AC6D1</color> // primary night
+    <color name="green_bbded6">#BBDED6</color> // primary
+    <color name="_ff03dac5">#FF03DAC5</color> // secondary, secondary variant night
+    <color name="_ff018786">#FF018786</color> // secondary variant
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="grey_dcdcdc">#dcdcdc</color>
+    <color name="_8ac6d1">#8AC6D1</color>
+
+    <color name="textHeading">#008eff</color>
+    <color name="blue">#0000ff</color>
+</resources>
