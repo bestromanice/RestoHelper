@@ -40,15 +40,12 @@ public class DishAdapter extends RecyclerView.Adapter<DishAdapter.DishViewHolder
         holder.dishName.setText(dishes.get(position).getName());
         holder.dishPrice.setText(String.valueOf(dishes.get(position).getPrice()));
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        holder.itemView.setOnClickListener(v -> {
 
-                Intent intent = new Intent(context, DishPageActivity.class);
-                intent.putExtra("detailed", dishes.get(position));
-                context.startActivity(intent);
+            Intent intent = new Intent(context, DishPageActivity.class);
+            intent.putExtra("detailed", dishes.get(position));
+            context.startActivity(intent);
 
-            }
         });
     }
 

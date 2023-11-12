@@ -53,30 +53,24 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         holder.date.setText(cartModelList.get(position).getCurrentDate());
         holder.time.setText(cartModelList.get(position).getCurrentTime());
 
-        holder.deleteItem.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        holder.deleteItem.setOnClickListener(v -> firestore.collection("AddToCart").document(auth.getCurrentUser().getUid())
+                .collection("User")
+                .document(cartModelList.get(position).getDocumentId())
+                .delete()
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
 
-                firestore.collection("AddToCart").document(auth.getCurrentUser().getUid())
-                        .collection("User")
-                        .document(cartModelList.get(position).getDocumentId())
-                        .delete()
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-
-                                if (task.isSuccessful()) {
-                                    cartModelList.remove(cartModelList.get(position));
-                                    notifyDataSetChanged();
-                                    Toast.makeText(context, "Позиция удалена", Toast.LENGTH_SHORT).show();
-                                }
-                                else {
-                                    Toast.makeText(context, "Ошибка: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        });
-            }
-        });
+                        if (task.isSuccessful()) {
+                            cartModelList.remove(cartModelList.get(position));
+                            notifyDataSetChanged();
+                            Toast.makeText(context, "Позиция удалена", Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            Toast.makeText(context, "Ошибка: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }));
     }
 
     @Override

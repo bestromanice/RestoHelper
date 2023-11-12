@@ -74,11 +74,15 @@ public class RegistrationActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
                         if (task.isSuccessful()) {
-                            Toast.makeText(RegistrationActivity.this, "Успешно зарегистрирован", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegistrationActivity.this,
+                                    "Успешно зарегистрирован",
+                                    Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(RegistrationActivity.this, MainActivity.class));
                         }
                         else {
-                            Toast.makeText(RegistrationActivity.this, "Ошибка регистрации: " + task.getException(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegistrationActivity.this,
+                                    "Ошибка регистрации: " + task.getException(),
+                                    Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

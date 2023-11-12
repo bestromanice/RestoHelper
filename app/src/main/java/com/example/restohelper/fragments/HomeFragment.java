@@ -73,21 +73,9 @@ public class HomeFragment extends Fragment {
         openCartButton = root.findViewById(R.id.home_open_cart_activity_image_button);
         openSettingsButton = root.findViewById(R.id.settings_activity);
 
-        openCartButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        openCartButton.setOnClickListener(v -> startActivity(new Intent(getContext(), CartActivity.class)));
 
-                startActivity(new Intent(getContext(), CartActivity.class));
-            }
-        });
-
-        openSettingsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                startActivity(new Intent(getContext(), SettingsActivity.class));
-            }
-        });
+        openSettingsButton.setOnClickListener(v -> startActivity(new Intent(getContext(), SettingsActivity.class)));
 
         // Categories
         categoriesRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.HORIZONTAL, false));
@@ -97,24 +85,21 @@ public class HomeFragment extends Fragment {
 
         db.collection("Category")
                 .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
 
-                            for (QueryDocumentSnapshot document : task.getResult()) {
+                        for (QueryDocumentSnapshot document : task.getResult()) {
 
-                                CategoryModel category = document.toObject(CategoryModel.class);
-                                categories.add(category);
-                                categoryAdapter.notifyDataSetChanged();
-                                constraintLayout.setVisibility(View.VISIBLE);
-                                progressDialog.dismiss();
-                            }
+                            CategoryModel category = document.toObject(CategoryModel.class);
+                            categories.add(category);
+                            categoryAdapter.notifyDataSetChanged();
+                            constraintLayout.setVisibility(View.VISIBLE);
+                            progressDialog.dismiss();
                         }
-                        else {
+                    }
+                    else {
 
-                            Toast.makeText(getActivity(), " " + task.getException(), Toast.LENGTH_SHORT).show();
-                        }
+                        Toast.makeText(getActivity(), " " + task.getException(), Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -126,22 +111,21 @@ public class HomeFragment extends Fragment {
 
         db.collection("Dishes")
                 .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
 
-                            for (QueryDocumentSnapshot document : task.getResult()) {
+                        for (QueryDocumentSnapshot document : task.getResult()) {
 
-                                DishModel dish = document.toObject(DishModel.class);
-                                dishes.add(dish);
-                                dishAdapter.notifyDataSetChanged();
-                            }
+                            DishModel dish = document.toObject(DishModel.class);
+                            dishes.add(dish);
+                            dishAdapter.notifyDataSetChanged();
                         }
-                        else {
+                    }
+                    else {
 
-                            Toast.makeText(getActivity(), " " + task.getException(), Toast.LENGTH_SHORT).show();
-                        }
+                        Toast.makeText(getActivity(),
+                                " " + task.getException(),
+                                Toast.LENGTH_SHORT).show();
                     }
                 });
 

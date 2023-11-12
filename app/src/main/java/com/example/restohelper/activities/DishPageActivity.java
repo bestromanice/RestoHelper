@@ -47,13 +47,7 @@ public class DishPageActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                finish();
-            }
-        });
+        toolbar.setNavigationOnClickListener(v -> finish());
 
         firestore = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
@@ -86,36 +80,28 @@ public class DishPageActivity extends AppCompatActivity {
             totalPrice = dishModel.getPrice() * totalQuantity;
         }
 
-        addToCartButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        addToCartButton.setOnClickListener(v -> addToCart());
 
-                addToCart();
-            }
-        });
+        plusQuantityButton.setOnClickListener(v -> {
 
-        plusQuantityButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            if (totalQuantity < 10) {
+                totalQuantity += 1;
+                dishQuantity.setText(String.valueOf(totalQuantity));
 
-                if (totalQuantity < 10) {
-                    totalQuantity += 1;
-                    dishQuantity.setText(String.valueOf(totalQuantity));
-
-                    if (dishModel != null) {
-                        totalPrice = dishModel.getPrice() * totalQuantity;
-                    }
+                if (dishModel != null) {
+                    totalPrice = dishModel.getPrice() * totalQuantity;
                 }
             }
         });
 
-        minusQuantityButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        minusQuantityButton.setOnClickListener(v -> {
 
-                if (totalQuantity > 1) {
-                    totalQuantity -= 1;
-                    dishQuantity.setText(String.valueOf(totalQuantity));
+            if (totalQuantity > 1) {
+                totalQuantity -= 1;
+                dishQuantity.setText(String.valueOf(totalQuantity));
+
+                if (dishModel != null) {
+                    totalPrice = dishModel.getPrice() * totalQuantity;
                 }
             }
         });
@@ -148,7 +134,9 @@ public class DishPageActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<DocumentReference> task) {
 
-                        Toast.makeText(DishPageActivity.this, "Добавлено к заказу", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(DishPageActivity.this,
+                                "Добавлено к заказу",
+                                Toast.LENGTH_SHORT).show();
                         finish();
                     }
                 });

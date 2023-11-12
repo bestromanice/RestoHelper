@@ -31,13 +31,7 @@ public class SettingsActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.settings_toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                finish();
-            }
-        });
+        toolbar.setNavigationOnClickListener(v -> finish());
 
         currentUserEmail = findViewById(R.id.settings_current_user_email_text_view);
         currentUserEmail.setText(auth.getCurrentUser().getEmail());

@@ -94,12 +94,9 @@ public class CartActivity extends AppCompatActivity {
             @Override
             public void run() {
 
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        calculateTotalAmount(cartModelList);
-                        cartAdapter.notifyDataSetChanged();
-                    }
+                handler.post(() -> {
+                    calculateTotalAmount(cartModelList);
+                    cartAdapter.notifyDataSetChanged();
                 });
             };
         }, 0, 1000);
@@ -120,6 +117,6 @@ public class CartActivity extends AppCompatActivity {
             totalAmount += cartModel.getTotalPrice();
         }
 
-        overAllAmount.setText("Общая стоимость заказа: " + totalAmount + "₽");
+        overAllAmount.setText(String.format("Общая стоимость заказа: %d₽", totalAmount));
     }
 }
