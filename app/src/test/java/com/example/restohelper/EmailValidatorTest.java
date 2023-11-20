@@ -3,6 +3,8 @@ package com.example.restohelper;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import com.example.restohelper.testing.EmailValidator;
+
 import org.junit.Test;
 
 public class EmailValidatorTest {

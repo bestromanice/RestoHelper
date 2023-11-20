@@ -69,21 +69,18 @@ public class RegistrationActivity extends AppCompatActivity {
         }
 
         auth.createUserWithEmailAndPassword(userEmail, userPassword)
-                .addOnCompleteListener(RegistrationActivity.this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
+                .addOnCompleteListener(RegistrationActivity.this, task -> {
 
-                        if (task.isSuccessful()) {
-                            Toast.makeText(RegistrationActivity.this,
-                                    "Успешно зарегистрирован",
-                                    Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(RegistrationActivity.this, MainActivity.class));
-                        }
-                        else {
-                            Toast.makeText(RegistrationActivity.this,
-                                    "Ошибка регистрации: " + task.getException(),
-                                    Toast.LENGTH_SHORT).show();
-                        }
+                    if (task.isSuccessful()) {
+                        Toast.makeText(RegistrationActivity.this,
+                                "Успешно зарегистрирован",
+                                Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(RegistrationActivity.this, MainActivity.class));
+                    }
+                    else {
+                        Toast.makeText(RegistrationActivity.this,
+                                "Ошибка регистрации: " + task.getException(),
+                                Toast.LENGTH_SHORT).show();
                     }
                 });
 

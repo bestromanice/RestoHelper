@@ -130,15 +130,12 @@ public class DishPageActivity extends AppCompatActivity {
         cartMap.put("totalPrice", totalPrice);
 
         firestore.collection("AddToCart").document(auth.getCurrentUser().getUid())
-                .collection("User").add(cartMap).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DocumentReference> task) {
+                .collection("User").add(cartMap).addOnCompleteListener(task -> {
 
-                        Toast.makeText(DishPageActivity.this,
-                                "Добавлено к заказу",
-                                Toast.LENGTH_SHORT).show();
-                        finish();
-                    }
+                    Toast.makeText(DishPageActivity.this,
+                            "Добавлено к заказу",
+                            Toast.LENGTH_SHORT).show();
+                    finish();
                 });
     }
 }

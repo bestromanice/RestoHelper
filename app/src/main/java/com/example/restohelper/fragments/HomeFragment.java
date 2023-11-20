@@ -99,7 +99,9 @@ public class HomeFragment extends Fragment {
                     }
                     else {
 
-                        Toast.makeText(getActivity(), " " + task.getException(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(),
+                                " " + task.getException(),
+                                Toast.LENGTH_SHORT).show();
                     }
                 });
 

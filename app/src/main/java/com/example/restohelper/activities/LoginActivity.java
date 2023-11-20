@@ -50,23 +50,20 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         auth.signInWithEmailAndPassword(userEmail, userPassword)
-                .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
+                .addOnCompleteListener(LoginActivity.this, task -> {
 
-                                if (task.isSuccessful()) {
-                                    Toast.makeText(LoginActivity.this,
-                                            "Успешно вошёл",
-                                            Toast.LENGTH_SHORT).show();
-                                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                                }
-                                else {
-                                    Toast.makeText(LoginActivity.this,
-                                            "Ошибка входа: " + task.getException(),
-                                            Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        });
+                    if (task.isSuccessful()) {
+                        Toast.makeText(LoginActivity.this,
+                                "Успешно вошёл",
+                                Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                    }
+                    else {
+                        Toast.makeText(LoginActivity.this,
+                                "Ошибка входа: " + task.getException(),
+                                Toast.LENGTH_SHORT).show();
+                    }
+                });
 
     }
 

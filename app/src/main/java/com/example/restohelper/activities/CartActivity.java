@@ -48,13 +48,7 @@ public class CartActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                finish();
-            }
-        });
+        toolbar.setNavigationOnClickListener(v -> finish());
 
         overAllAmount = findViewById(R.id.cart_total_price_text_view);
         cartRecyclerView = findViewById(R.id.cart_recycler_view);
@@ -64,26 +58,23 @@ public class CartActivity extends AppCompatActivity {
         cartRecyclerView.setAdapter(cartAdapter);
 
         firestore.collection("AddToCart").document(auth.getCurrentUser().getUid())
-                .collection("User").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                .collection("User").get().addOnCompleteListener(task -> {
 
-                        if (task.isSuccessful()) {
+                    if (task.isSuccessful()) {
 
-                            for (QueryDocumentSnapshot document : task.getResult()) {
+                        for (QueryDocumentSnapshot document : task.getResult()) {
 
-                                String documentId = document.getId();
+                            String documentId = document.getId();
 
-                                CartModel cartModel = document.toObject(CartModel.class);
+                            CartModel cartModel = document.toObject(CartModel.class);
 
-                                cartModel.setDocumentId(documentId);
+                            cartModel.setDocumentId(documentId);
 
-                                cartModelList.add(cartModel);
-                                cartAdapter.notifyDataSetChanged();
-                            }
-
-                            calculateTotalAmount(cartModelList);
+                            cartModelList.add(cartModel);
+                            cartAdapter.notifyDataSetChanged();
                         }
+
+                        calculateTotalAmount(cartModelList);
                     }
                 });
 
