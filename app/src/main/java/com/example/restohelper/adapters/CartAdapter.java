@@ -57,18 +57,15 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
                 .collection("User")
                 .document(cartModelList.get(position).getDocumentId())
                 .delete()
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
+                .addOnCompleteListener(task -> {
 
-                        if (task.isSuccessful()) {
-                            cartModelList.remove(cartModelList.get(position));
-                            notifyDataSetChanged();
-                            Toast.makeText(context, "Позиция удалена", Toast.LENGTH_SHORT).show();
-                        }
-                        else {
-                            Toast.makeText(context, "Ошибка: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                        }
+                    if (task.isSuccessful()) {
+                        cartModelList.remove(cartModelList.get(position));
+                        notifyDataSetChanged();
+                        Toast.makeText(context, "Позиция удалена", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        Toast.makeText(context, "Ошибка: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }));
     }

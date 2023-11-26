@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:background="@color/biruza_8ac6d1"
+        android:background="@color/light_blue_primary_night"
 
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

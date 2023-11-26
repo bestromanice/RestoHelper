@@ -2,15 +2,15 @@
     <!-- Base application theme. -->
     <style name="Theme.RestoHelper" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/green_bbded6</item>
-        <item name="colorPrimaryVariant">@color/green_bbded6</item>
+        <item name="colorPrimary">@color/light_blue_primary</item>
+        <item name="colorPrimaryVariant">@color/light_blue_primary</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/_ff03dac5</item>
-        <item name="colorSecondaryVariant">@color/_ff03dac5</item>
+        <item name="colorSecondary">@color/light_blue_secondary_secondary_variant_night</item>
+        <item name="colorSecondaryVariant">@color/light_blue_secondary_secondary_variant_night</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">@color/biruza_8ac6d1</item>
+        <item name="android:statusBarColor">@color/light_blue_primary_night</item>
         <!-- Customize your theme here. -->
 
         <item name="android:windowActivityTransitions">true</item>

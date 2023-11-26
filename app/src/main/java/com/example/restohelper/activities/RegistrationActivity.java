@@ -46,25 +46,33 @@ public class RegistrationActivity extends AppCompatActivity {
 
         if (TextUtils.isEmpty(userName)) {
 
-            Toast.makeText(this, "Введите имя!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,
+                    "Введите имя!",
+                    Toast.LENGTH_SHORT).show();
             return;
         }
 
         if (TextUtils.isEmpty(userEmail)) {
 
-            Toast.makeText(this, "Введите email!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,
+                    "Введите email!",
+                    Toast.LENGTH_SHORT).show();
             return;
         }
 
         if (TextUtils.isEmpty(userPassword)) {
 
-            Toast.makeText(this, "Введите пароль!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,
+                    "Введите пароль!",
+                    Toast.LENGTH_SHORT).show();
             return;
         }
 
         if (userPassword.length() < 6) {
 
-            Toast.makeText(this, "Слишком короткий пароль, введите минимум 6 символов!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,
+                    "Слишком короткий пароль, введите минимум 6 символов!",
+                    Toast.LENGTH_SHORT).show();
             return;
         }
 

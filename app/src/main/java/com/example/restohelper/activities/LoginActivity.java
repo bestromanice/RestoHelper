@@ -35,17 +35,23 @@ public class LoginActivity extends AppCompatActivity {
         String userPassword = password.getText().toString();
 
         if (TextUtils.isEmpty(userEmail)) {
-            Toast.makeText(this, "Введите email!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,
+                    "Введите email!",
+                    Toast.LENGTH_SHORT).show();
             return;
         }
 
         if (TextUtils.isEmpty(userPassword)) {
-            Toast.makeText(this, "Введите пароль!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,
+                    "Введите пароль!",
+                    Toast.LENGTH_SHORT).show();
             return;
         }
 
         if (userPassword.length() < 6) {
-            Toast.makeText(this, "Слишком короткий пароль, введите минимум 6 символов!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,
+                    "Слишком короткий пароль, введите минимум 6 символов!",
+                    Toast.LENGTH_SHORT).show();
             return;
         }
 

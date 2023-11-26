@@ -13,7 +13,7 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
 
-        android:background="@color/biruza_8ac6d1"
+        android:background="@color/light_blue_primary_night"
         app:title="Заказ"
 
         app:layout_constraintTop_toTopOf="parent"
