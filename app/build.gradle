@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'com.google.gms.google-services'
+    id "io.qameta.allure" version "2.9.6"
 }
 
 android {
@@ -14,7 +15,8 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+//        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -29,6 +31,10 @@ android {
     }
 }
 
+def allureVersion = "2.19.0",
+    junitVersion = "5.8.2",
+    slf4jVersion = "1.7.32"
+
 dependencies {
 
     implementation 'androidx.fragment:fragment:1.5.7'
@@ -37,11 +43,32 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'com.google.firebase:firebase-database:20.2.0'
     implementation 'com.google.firebase:firebase-database-ktx:20.2.0'
+    implementation 'androidx.test.ext:junit-ktx:1.1.5'
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'org.mockito:mockito-core:2.24.0'
     testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    testImplementation 'io.appium:java-client:9.0.0'
+
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-contrib:3.0.2'
+    androidTestImplementation 'com.android.support.test:rules:1.0.2'
+
+    testImplementation 'com.github.romankh3:image-comparison:4.4.0'
+    testImplementation(
+            "io.qameta.allure:allure-junit5:$allureVersion",
+            "com.codeborne:selenide:5.25.0",
+            "io.qameta.allure:allure-selenide:$allureVersion",
+            "io.appium:java-client:7.6.0",
+            "org.aeonbits.owner:owner:1.0.12",
+            "io.rest-assured:rest-assured:4.4.0",
+            "org.junit.jupiter:junit-jupiter-api:$junitVersion")
+    testRuntimeOnly(
+            "org.slf4j:slf4j-simple:$slf4jVersion",
+            "org.junit.jupiter:junit-jupiter-engine:$junitVersion")
+
+//    androidTestImplementation("com.kaspersky.android-components:kaspresso:1.5.1")
+//    androidTestUtil("androidx.test:orchestrator:1.4.2")
 
 
     // Import the Firebase BoM
