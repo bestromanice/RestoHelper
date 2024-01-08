@@ -13,3 +13,6 @@
 .externalNativeBuild
 .cxx
 local.properties
+/app/src/libs/java-client-7.1.0.jar
+/app/src/libs/junit-4.12.jar
+/app/src/libs/selenium-server-standalone-3.4.0.jar

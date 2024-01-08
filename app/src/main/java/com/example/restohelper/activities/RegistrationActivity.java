@@ -81,7 +81,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
                     if (task.isSuccessful()) {
                         Toast.makeText(RegistrationActivity.this,
-                                "Успешно зарегистрирован",
+                                "Успешная регистрация",
                                 Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(RegistrationActivity.this, MainActivity.class));
                     }

@@ -9,7 +9,6 @@ import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
-import com.example.restohelper.activities.LoginActivity;
 import com.example.restohelper.activities.RegistrationActivity;
 
 import org.junit.Rule;
@@ -41,7 +40,7 @@ public class RegistrationInstrumentedTest {
         closeSoftKeyboard();
         onView(withId(R.id.sign_up_sign_in_text_view))
                 .perform(click());
-        onView(withId(R.id.sign_in_sign_in_text_view))
+        onView(withId(R.id.sign_in_sign_up_text_view))
                 .perform(click());
 
     }
